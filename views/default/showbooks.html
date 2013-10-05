@@ -1,0 +1,25 @@
+{{extend 'layout1.html'}}
+
+<div style="text-align:center"><font size="4">Hello {{=name}}.Open book and make notes </font> <br/>
+	<img src="../static/images/books.jpg" alt="no image"/></div>
+<!--<div style="text-align:right">
+	<a href="createbook.html"><button>Create Book</button></a></div>--><br/>
+{{if len(books):}}
+<div style="text-align:center"><font size="4">List of your books:</font></div><br/><br/>
+{{j=len(books)-1}}
+{{for i in range(0,len(books)):}}
+<div style="text-align:center">
+	<form action="open" method="post">
+		 <img src="../static/images/bicon.jpeg"  alt="no image"/>
+		<input type="text" name="check" value="{{=books[j-i]['name']}}" readonly/>&nbsp;&nbsp;
+		<button type="button">{{=books[j-i]['created']}}</button>&nbsp;&nbsp;
+		<button name="option" type="submit"  value="OPEN">OPEN</button>
+		<button name="option" type="submit"  value="DELETE" onClick="alert('This Book will be Deleted, along with all the Notes in it.');">DELETE</button>
+	</form>
+</div>
+<br/>
+
+{{pass}}
+{{else:}}
+<div style="text-align:center"><font size="4">No Books! Click on New Book to create a Book</font></div><br/><br/>
+{{pass}}

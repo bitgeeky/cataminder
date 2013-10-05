@@ -1,0 +1,60 @@
+//.  Example 1 ................................................................
+tinyMCE.init({
+	mode : "textareas",
+	theme : "advanced",
+	plugins : "smmultiupload",
+	theme_advanced_buttons3_add : "smmultiupload",
+	plugin_smmultiupload_directory : "/download/"
+});
+
+//.  Example 2 ................................................................
+tinyMCE.init({
+	mode : "textareas",
+	theme : "advanced",
+	plugins : "smmultiupload",
+	theme_advanced_buttons3_add : "smmultiupload",
+	plugin_smmultiupload_directory : "/download/",
+	plugin_smmultiupload_hidden_folder : "",
+	plugin_smmultiupload_hidden_subfolder : "",
+	plugin_smmultiupload_upload_filetype : "",
+	plugin_smmultiupload_upload_filesize : "",
+	plugin_smmultiupload_check_session_variable : "",
+	plugin_smmultiupload_document_root : "",
+	plugin_smmultiupload_width : "800",
+	plugin_smmultiupload_height : "600"
+});
+
+//. Parameter .................................................................
+[plugin_smmultiupload_directory]
+	Directory path
+
+[plugin_smmultiupload_hidden_folder]
+	Hidden folder, comma separated list
+	e.g.: "folder1,folder2"
+
+[plugin_smmultiupload_hidden_subfolder]
+	Hidden sub folder, comma separated list
+	e.g.: "subfolder1,subfolder2"
+
+[plugin_smmultiupload_upload_filetype]
+	Upload file type, comma separated list
+	e.g.: "jpg,gif"
+
+[plugin_smmultiupload_upload_filesize]
+	Upload file size (KB)
+	e.g.: "100" -> 100KB
+
+[plugin_smmultiupload_check_session_variable]
+	Check session variable of a content management systems (CMS)
+	e.g.: ADDT -> "kt_login_id"
+	      Dreamweaver -> "MM_user_id"
+
+[plugin_smmultiupload_document_root]
+	Server root directory path of your web folder.
+	If You have a PHP installation without $_SERVER["DOCUMENT_ROOT"] access.
+
+[plugin_smmultiupload_width]
+	Window width (pixel)
+
+[plugin_smmultiupload_height]
+	Window height (pixel)

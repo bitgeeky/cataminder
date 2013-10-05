@@ -1,0 +1,60 @@
+//.  Beispiel 1 ...............................................................
+tinyMCE.init({
+	mode : "textareas",
+	theme : "advanced",
+	plugins : "smmultiupload",
+	theme_advanced_buttons3_add : "smmultiupload",
+	plugin_smmultiupload_directory : "/download/"
+});
+
+//.  Beispiel 2 ...............................................................
+tinyMCE.init({
+	mode : "textareas",
+	theme : "advanced",
+	plugins : "smmultiupload",
+	theme_advanced_buttons3_add : "smmultiupload",
+	plugin_smmultiupload_directory : "/download/",
+	plugin_smmultiupload_hidden_folder : "",
+	plugin_smmultiupload_hidden_subfolder : "",
+	plugin_smmultiupload_upload_filetype : "",
+	plugin_smmultiupload_upload_filesize : "",
+	plugin_smmultiupload_check_session_variable : "",
+	plugin_smmultiupload_document_root : "",
+	plugin_smmultiupload_width : "800",
+	plugin_smmultiupload_height : "600"
+});
+
+//. Parameter .................................................................
+[plugin_smmultiupload_directory]
+	Verzeichnispfad
+
+[plugin_smmultiupload_hidden_folder]
+	Verzeichnis ausblenden, Auflistung Komma getrennt
+	z.B.: "Verzeichnis1,Verzeichnis2"
+
+[plugin_smmultiupload_hidden_subfolder]
+	Unterverzeichnis ausblenden, Auflistung Komma getrennt
+	z.B.: "Unterverzeichnis1,Unterverzeichnis2"
+
+[plugin_smmultiupload_upload_filetype]
+	Upload Dateityp, Auflistung Komma getrennt
+	z.B.: "jpg,gif"
+
+[plugin_smmultiupload_upload_filesize]
+	Upload Dateigröße (KB)
+	z.B.: "100" -> 100KB
+
+[plugin_smmultiupload_check_session_variable]
+	Überprüfung einer Session-Variable eines Content-Management-Systems (CMS)
+	z.B.: ADDT -> "kt_login_id"
+	      Dreamweaver -> "MM_user_id"
+
+[plugin_smmultiupload_document_root]
+	Server Root-Verzeichnispfad Ihres Webverzeichnisses.
+	Wenn Sie ein PHP-Installation ohne Zugriff auf $_SERVER["DOCUMENT_ROOT"] haben.
+
+[plugin_smmultiupload_width]
+	Fensterbreite (Pixel)
+
+[plugin_smmultiupload_height]
+	Fensterhöhe (Pixel)

@@ -1,0 +1,30 @@
+{{extend 'layout1.html'}}
+<h1 style="text-align:center">MY PROFILE<br/><br/></h1>
+<h2><u>User Details:</u></h2>
+<img width="123px" height="156px" style="float:right" src="{{=URL('download',args=auth.user.photo)}}" /><br/>
+<div style="font-family:Times"><font size="3">Name : {{=auth.user.first_name}} {{=auth.user.last_name}}<br/>
+Email ID: {{=auth.user.email}}<br/>
+Contact No. : {{=auth.user.contact}}</font></div>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<h2 style="text-align:center"><u>RECENT TASKS</u><br/><br/></h2>
+<font size="3">
+{{if(len(top3)):}}	
+<table width="100%" border="0">
+	<tr style="background-color:#a9f5f2">
+		<th>Task Name</th>
+		<th>Task Date</th>
+		<th>Task Description</th>
+	</tr>
+	{{for i in range(0,len(top3)):}}
+	<tr style="background-color:#cef6f5">
+			<td style="color:#ff8000;text-align:center"><b><i>{{=top3[i]['name']}}</b></i><br/></td>
+			<td style="color:#ff8000;text-align:center"><b><i>{{=top3[i]['ndate']}}</b></i><br/></td>
+			<td style="color:#ff8000;text-align:center"><b><i>{{=top3[i]['description']}}</b></i><br/></td>	
+	</tr>
+	{{pass}}
+
+</table>
+{{else:}}
+<div style="text-align:center">	No TASKS! Create some tasks using the 'New Task' button in the sidebar<br/></div>
+{{pass}}
+</font>

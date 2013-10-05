@@ -1,0 +1,25 @@
+{{extend 'layout1.html'}}
+{{if len(tasks)==0:}}
+<div style="text-align:center">
+	<font size="4">
+		No tasks,click on new task <br/>
+	</font>
+</div>
+{{else:}}
+<div style="text-align:center"><font size="4">Hello {{=name}}.You have the following tasks: </font></div> <br/>
+<div style="text-align:center"><button><h2>TASKS</h2></button></div><br/><br/>
+{{j=len(tasks)-1}}
+{{for i in range(0,len(tasks)):}}
+<div style="text-align:center;background-color:#cef6f5">
+	<form action="opentask" method="post">
+		{{=(i+1)}}.&nbsp;&nbsp; Task:
+		<input type="text" name="check" value="{{=tasks[j-i]['name']}}" readonly/>&nbsp;&nbsp;
+		on {{=tasks[j-i]['tdate']}} &nbsp;&nbsp; @ {{=tasks[j-i]['ttime']}} &nbsp;&nbsp;
+		<button name="option" type="submit"  value="OPEN">OPEN</button>
+		<button name="option" type="submit"  value="DELETE" onClick="alert('This Task will be deleted.');">DELETE</button>
+	</form>
+</div>
+<br/>
+
+{{pass}}
+{{pass}}

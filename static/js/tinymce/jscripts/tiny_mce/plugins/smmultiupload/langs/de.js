@@ -1,0 +1,22 @@
+tinyMCE.addI18n('de.smmultiupload',{
+desc : 'SMMultiUpload - Mehrfach Datei upload',
+menu_hint_1 : 'Datei hinzuf\u00FCgen',
+menu_hint_2 : 'Dateiliste l\u00F6schen',
+menu_hint_3 : 'Upload',
+menu_hint_4 : 'Upload abbrechen',
+table_column_caption_1 : 'ID',
+table_column_caption_2 : 'Dateiname',
+table_column_caption_3 : 'Status',
+table_column_caption_4 : 'Dateigr\u00F6\u00DFe',
+table_column_caption_5 : 'Datum',
+upload_info_1 : 'Zul\u00E4ssige Dateitypen',
+upload_info_2 : 'Maximale Dateigr\u00F6\u00DFe',
+upload_info_11 : 'Unbeschr\u00E4nkt',
+upload_info_12 : 'Unbeschr\u00E4nkt',
+upload_result_hint_1 : 'Upload erfolgreich',
+upload_result_hint_2 : 'Upload nicht erfolgreich',
+upload_result_hint_3 : 'Upload gesperrt',
+message_upload : 'M\u00F6chten Sie alle Dateien zum Server \u00FCbertragen ?',
+message_upload_cancel : 'M\u00F6chten Sie die \u00DCbertragung abbrechen ?',
+message_wait : 'Bitte warten...'
+});

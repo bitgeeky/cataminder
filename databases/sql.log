@@ -1,0 +1,114 @@
+timestamp: 2013-03-27T21:26:43.069354
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2013-03-27T21:26:43.193682
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-03-27T21:26:43.306666
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-03-27T21:26:43.419331
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2013-03-27T21:26:43.554683
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-03-27T21:26:43.676073
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2013-03-27T21:26:43.802265
+CREATE TABLE books(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    author CHAR(512),
+    created DATE
+);
+success!
+timestamp: 2013-03-27T21:26:43.925651
+CREATE TABLE notes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    bookname CHAR(512),
+    heading CHAR(512),
+    contents TEXT,
+    created DATE,
+    modified DATE,
+    author CHAR(512)
+);
+success!
+timestamp: 2013-03-27T21:26:44.048904
+CREATE TABLE task(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    tdate DATE,
+    ttime TIME,
+    description TEXT,
+    ndate DATE,
+    ntime TIME,
+    nemail CHAR(1),
+    author CHAR(512)
+);
+success!
+timestamp: 2013-03-27T21:26:44.160826
+CREATE TABLE tags(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    notename CHAR(512),
+    author CHAR(512)
+);
+success!
+timestamp: 2013-03-27T21:26:44.273905
+CREATE TABLE trash(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    heading CHAR(512),
+    bookname CHAR(512),
+    contents TEXT,
+    author CHAR(512)
+);
+success!
+timestamp: 2013-04-13T12:56:48.504584
+ALTER TABLE auth_user ADD photo CHAR(512);
+timestamp: 2013-04-15T12:17:51.757609
+ALTER TABLE auth_user ADD contact CHAR(512);
+timestamp: 2013-04-15T22:30:13.005596
+ALTER TABLE task ADD status CHAR(512);
+timestamp: 2013-04-15T23:07:27.512240
+ALTER TABLE task ADD mailing CHAR(512);

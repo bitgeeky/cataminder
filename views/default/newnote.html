@@ -1,0 +1,22 @@
+{{extend 'layout1.html'}}
+<div style="text-align:center">
+	<img src="../static/images/nicon.png"  alt="no image"/>
+</div>
+<br/>
+<form action="note" method="post">
+	<div style="float:left">	
+	BOOK :	<input type="text" name="bookname" id="bookname" value="{{=bookname}}"/>
+	</div>
+	<div style="float:right">	
+	Note name:	<input type="text" name="name" id="name" placeholder="enter name"/>
+	</div>
+	<br/><br/><br/>
+	<div style="text-align:center">TAGS :
+	 <input type="text" name="tags" id="tags" size="20" placeholder="Give tags to search notes"/>
+ </div>
+ <br/> 
+ <div style="text-align:center">
+	 <input type="submit" value="Create Note"/>
+ </div>
+</form>
+

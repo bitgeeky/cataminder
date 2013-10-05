@@ -1,0 +1,31 @@
+{{extend 'layout1.html'}}
+	<form action="newnote" method="post">
+		<div style="float:left">
+			<input type="text" name="bookname" value="{{=bookname}}" readonly/>
+		</div>
+		<div style="float:right">
+			<input type="submit" value="Make Note"/>
+		</div>
+	</form><br/><br/><br/>
+	{{if len(notes)==0:}}
+	<h2 style="text-align:center">No notes in the book, make some new notes</h2>
+	{{else:}}
+	<div style="text-align:center"><font size="4">Notes in the book : {{=bookname}}</font></div><br/>
+{{j=len(notes)-1}}
+{{for i in range(0,len(notes)):}}
+<div style="text-align:center">
+	<form action="display" method="post">
+		 <img src="../static/images/nicon1.png"  alt="no image"/>
+		 <!--<button type="button">{#{=(i+1)}}</button>-->&nbsp;
+	<input type="text" name="check" value="{{=notes[j-i]['name']}}" readonly/>&nbsp;&nbsp;
+	<button type="button">{{=notes[j-i]['created']}}</button>&nbsp;&nbsp;
+	<input type="hidden" name="bname" value="{{=bookname}}">
+	<button name="option" type="submit"  value="OPEN">OPEN</button>
+	<button name="option" type="submit"  value="DELETE" onClick="alert('This Note will be Moved to Trash.');">DELETE</button>
+</form>
+	<!--{{=A('Download',_href=URL(r=request,f='create',args=(notes[j-i]['name'], notes[j-i]['heading'], notes[j-i]['contents'],notes[j-i].id),vars=dict(notes=notes)))}}-->
+</div>
+<br/>
+
+{{pass}}
+{{pass}}

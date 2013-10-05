@@ -1,0 +1,17 @@
+{{extend 'layout1.html'}}
+<div style="text-align:center"><button>NOTES IN THE TRASH : </button> <br/> <br/><br/><img src="../static/images/trash.png"  alt="no image"/>
+</div><br/>
+{{j=len(trash)-1}}
+{{for i in range(len(trash)):}}
+<div style="text-align:center">
+<form action="trash2" method="post">
+	<button type="button">{{=(i+1)}}</button>&nbsp;Note Name: 
+	<input type="text" name="check" value="{{=trash[j-i]['name']}}" readonly/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	From Book: <input type="text" name="bname" value="{{=trash[j-i]['bookname']}}" readonly/><br/>
+	<button name="option" type="submit"  value="OPEN">OPEN</button>
+	<button name="option" type="submit"  value="RESTORE" onClick="alert('This Note will be Restored.');">RESTORE</button>
+</form>
+</div>
+<br/>
+
+{{pass}}

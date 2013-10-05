@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+	<form action="newnote" method="post">
+		<div style="float:left">
+			<input type="text" name="bookname" value="{{=bookname}}" readonly/>
+		</div>
+		<div style="float:right">
+			<input type="submit" value="NEW NOTE"/>
+		</div>
+	</form><br/><br/>
+<div style="text-align:center"><button>NOTES IN THE BOOK : {{=bookname}}</button></div><br/>
+{{j=len(notes)-1}}
+{{for i in range(0,len(notes)):}}
+<div style="text-align:center">
+	<form action="display" method="post">
+		<button type="button">{{=(i+1)}}</button>&nbsp;
+		<input type="text" name="check" value="{{=notes[j-i]['name']}}" readonly/>&nbsp;&nbsp;
+	<button type="button">{{=notes[j-i]['created']}}</button>&nbsp;&nbsp;
+	<button name="option" type="submit"  value="OPEN">OPEN</button>
+	<button name="option" type="submit"  value="DELETE" onClick="alert('This Note will be Moved to Trash.');">DELETE</button>
+</form>
+</div>
+<br/>
+
+{{pass}}

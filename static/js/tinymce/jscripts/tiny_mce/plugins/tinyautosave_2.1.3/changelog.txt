@@ -1,0 +1,116 @@
+TinyAutoSave plug-in for TinyMCE
+Copyright (c) 2008-2011 Todd Northrop
+
+Changelog
+Last updated March 19, 2011
+
+____________________________
+Version 2.1.3 (2011-03-19)
+	
+	Updated the plugin to work with TinyMCE 3.4, which introduced internal changes that broke the plugin with IE6 and IE7 browsers.
+
+____________________________
+Version 2.1.2 (2010-05-09)
+	
+	Changed the licensing model to dual-licensed under the MIT or GPL Version 2 licenses.
+
+____________________________
+Version 2.1.1 (2009-12-03)
+	
+	Synced version 2.1 to changes made when converting to AutoSave for TinyMCE.
+
+	Added "tinyautosave_ask_beforeunload" config option, which I believe is a hold-over from the old autosave plugin.
+	
+	Changed default value of "autosave_ask_beforeunload" to false, because the point of autosave is to unobtrusively and automatically save the content, rather than relying on old-style warnings.  Also re-coded the config setting in the same manner as the others (using settings template).
+	
+	Changed the event hook for "autosave_ask_beforeunload" to the window.unload event, because window.onbeforeunload is not supported in Opera.
+	
+	Changed the event hook for "autosave_ask_beforeunload" to use the TinyMCE built-in event object, rather than direct assignment to the the window.unload / window.onbeforeunload event, which would have hijacked any events set up before the autosave plugin was initialized, and would not support multiple editors on the page.
+
+____________________________
+Version 2.1 (2009-11-19)
+	
+	Fixed: onPreSave event no longer fires when editor does not contain the requisite number of characters to perform an autosave.
+	
+	All callback functions can now be specified as either a string or function.  (Demo page updated to include an example of both methods.)
+	
+	Minified source file now prepared with Microsoft Ajax Minifier, which currently produces the most compact JavaScript code.
+	(http://aspnet.codeplex.com/Release/ProjectReleases.aspx?ReleaseId=35893)
+
+____________________________
+Version 2.0.1 (2009-09-18)
+	
+	Changed hooked event to window.onunload (from window.onbeforeunload).
+	
+	Updated all progress images (animated GIFs) to 20x20 so they will no longer be distored when displayed on a TinyMCE toolbar button.
+
+____________________________
+Version 2.0 (2009-09-17)
+	
+	Completely restructured private/public scope, to use true private scope. Prevents pollution of global namespace.
+	
+	Added new option [tinyautosave_key], a string value that identifies a unique instance of the autosave storage and settings (previously only one global storage space and settings existed).
+	
+	Multiple autosave storage spaces now exist, including different autosave storage spaces on the same page, if desired.
+	
+	Changed image dimensions of the png and gif versions of the toolbar button to 20x20, so they won't be distorted.  The progress images are still 16x16.
+	
+	Reduced the size of minified code by eliminating redundant static strings.
+	
+	Changed detection of localStorage and sessionStorage to perform and actual storage test. The new Google Chrome 3.0 has a bug that renders the browser incompatible with straight object detection in the last version.
+	
+	Changed inline comments to be more readable.  Added several new comments for new and changed code.
+	
+	Added new public property [key], which holds the value passed with tinyautosave_key (or the editor id if nothing passed).
+	
+	Fixed several minor errors with variable names.
+	
+	Changed UserData code to use a single DOM element for all interaction.
+	
+	Added demo page and TinyMCE code (latest version)
+
+____________________________
+Version 1.2 (2009-01-18)
+	
+	Fixed Firefox bug that prevented the progress indicator/throbber from displaying.
+	
+	Added new public property [progressDisplayTime], for changing the number of milliseconds the progress indicator/throbber will display after each auto-save. The default value is 1200 (equivalent of 1.2 seconds).
+	
+	Added new configuration option [tinyautosave_oninit], which accepts a String value of the name of a function that will be called immediately after the TinyAutoSave plugin is initialized. Can use dot-notation (i.e., "myObject.myFunction"). This function is a good place to set public properties and anything else that alters the look and/or behavior of the TinyAutoSave plugin. The context of the function call (the value of 'this') is the TinyAutoSave plugin instance.
+	
+	Added new public method [setProgressImage()], for changing the progress indicator/throbber image. Accepts one argument: the URL of the image.
+	
+	Added new image preload feature, which preloads the progress indicator/throbber image during initialization, as well as any time the image is changed, so that it is displayed without delay the first time it is needed.
+	
+	Added additional error trapping to account for "The data is invalid" error in IE. The error occurs when the UserData storage becomes corrupted, which happens every so often for some unknown reason.
+	
+	Updated, expanded, and improved in-code documentation and formatting.
+
+____________________________
+Version 1.1 (2009-01-13)
+	
+	Added error trapping during save and restore operations. Errors were being trigger during auto-saves in IE6 and IE7 when the total space occupied by their auto-saves exceeded 128K. (That is currently the limit on IE6/IE7.)
+	
+	Added six events to allow extendability:
+		onPreSave
+		onPostSave
+		onSaveError
+		onPreRestore
+		onPostRestore
+		onRestoreError
+		
+	The six events are configured exactly like you would configure a TinyMCE event in your configuration file. They are six String properties, and you set them to the name of the function to call. See readme.txt or the <field> definitions in the source code for details.
+	
+	One interesting use of the events would be in the case that the user tries to save, but the auto-save buffer is full. You can set an onSaveError to clear the current contents of the auto-save area using <plugin instance>.clear(), and then retry the auto-save by issuing a "mceTinyAutoSave" command on the editor instance. But you only need to do this kind of thing if users are editing content that regularly exceeds the TinyAutoSave buffer size.
+	
+	Fixed project page URLs (http://tinyautosave.googlecode.com).
+	
+	Changed author home page in about box to Speednet Group's actual home page (http://www.speednet.biz).
+
+____________________________
+Version 1.0 (2008-12-18)
+	
+	Initial release.
+
+
+__
